@@ -1,12 +1,10 @@
 import numpy as np
-import math
 from assignment_task1 import mean_of_z
-#print(mean_of_z)
 
 a = 13
 u = (1 + 1j)
 z_num = np.sqrt(2)*u
-z_den = pow((u/np.sqrt(2)), a)
+z_den = np.power((u/np.sqrt(2)), a)
 z_intial =  z_num / z_den
 b = 5 + 6
 
@@ -24,24 +22,13 @@ while not found:
     z_list = np.append(z_list, z_pos_nPlus1 )
     new_mean = np.mean(z_list)
 
-    if new_mean == mean_of_z:
-
+    if np.isclose(new_mean, mean_of_z, atol= 1e-3):
         found = True
-        print(f'found at step {count}')
+        print(f'Found at step {count}')
+        
     else:
-        count +=1
-        
-        
-
+        count += 1
+    
     if count == 1000:
-        
-        #print('nope')
+        print('nope')
         break
-#print(new_mean)
-
-
-
-
-
-
-print(z_intial)
