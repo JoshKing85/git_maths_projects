@@ -1,12 +1,4 @@
-def implies(a, b):
-
-    if a and not b:
-        return False
-    else:
-        return True
-    
-
-a = True
-b = False
-
-print(implies(a, not b))
+a = {1, 2 ,3}
+b = {3, 4, 5}
+set1 = a.intersection(b)
+print(set1)
