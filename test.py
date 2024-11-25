@@ -1,4 +1,8 @@
-a = {1, 2 ,3}
-b = {3, 4, 5}
-set1 = a.intersection(b)
-print(set1)
+import numpy as np
+from multiset import Multiset
+set = [13, 13, np.nan, 0,]
+s = Multiset(set)
+new_s = {0}
+super_set = s + new_s
+print(s)
+print(super_set.issubset(s))
