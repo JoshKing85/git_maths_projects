@@ -1,4 +1,4 @@
-import math
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -12,9 +12,9 @@ z_inital = z_num/z_den
 #print(z_num)
 #print(z_den)
 #print(z_inital)
-#plt.plot(z_num.real, z_num.imag, 'bx')
-#plt.plot(z_den.real, z_den.imag, 'ro')
-#plt.plot(z_inital.real, z_inital.imag, 'kx')
+plt.plot(z_num.real, z_num.imag, 'bx')
+plt.plot(z_den.real, z_den.imag, 'ro')
+plt.plot(z_inital.real, z_inital.imag, 'kx')
 
 
 z_list = np.array([z_inital])
@@ -24,6 +24,9 @@ for i in range(64):
 
     z_pos_n = z_list[i]
     z_pos_nPlus_1 =  z_pos_n / step
+    mag = abs(z_pos_nPlus_1)
+    print(mag)
+    #print(z_pos_nPlus_1)
     z_list = np.append(z_list, z_pos_nPlus_1 )
 
 
@@ -34,12 +37,13 @@ for j in z_list:
 
 plt.axhline(0, c='black', linewidth=1)
 plt.axvline(0, c='black', linewidth=1)
-plt.xlabel('y')
-plt.ylabel('x', rotation=0)
-#plt.ylim(-0.025, 0.025)  
-#plt.xlim(-0.025, 0.025)   
+plt.xlabel('im')
+plt.ylabel('re', rotation=0)
+plt.ylim(-0.025, 0.025)  
+plt.xlim(-0.025, 0.025)   
 
-
+total = np.sum(z_list)
+print(f'total is {total}')
 mean_of_z = np.mean(z_list)
 print(mean_of_z)
 #print(mean_of_z)
@@ -47,4 +51,4 @@ plt.quiver(0,0, mean_of_z.real, mean_of_z.imag)
 #for i in z_list:
     #print(i)
 
-#plt.show()
+plt.show()

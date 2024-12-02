@@ -1,5 +1,5 @@
 import numpy as np
-from assignment_task1 import mean_of_z
+#from assignment_task1 import mean_of_z
 
 a = 13
 u = (1 + 1j)
@@ -18,11 +18,12 @@ while not found:
 
     z_pos = z_list[count]
     z_pos_nPlus1 = z_pos/step
+    print(z_pos_nPlus1)
     
     z_list = np.append(z_list, z_pos_nPlus1 )
     new_mean = np.mean(z_list)
 
-    if np.isclose(new_mean, mean_of_z, atol= 1e-3):
+    if np.isclose(new_mean, 0, atol= 1e-12):
         found = True
         print(f'Found at step {count}')
         
